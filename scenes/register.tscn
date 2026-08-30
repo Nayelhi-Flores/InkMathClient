@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://f2xk4ryafcnt"]
+
+[ext_resource type="Script" uid="uid://ukinoyffhcjl" path="res://scripts/Controllers/RegisterController.cs" id="1_gvynn"]
+[ext_resource type="Theme" uid="uid://bvqn6yjb5hotc" path="res://assets/modern_theme.theme" id="1_th0y5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th0y5"]
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ul2ju"]
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2w5e"]
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Register" type="Control" unique_id=107577719]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_th0y5")
+script = ExtResource("1_gvynn")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=347598956]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05882353, 0.09019608, 0.16470589, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=369075067]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1811586393]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=561252101]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=250238556]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="VBoxContainerNombre" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=318084308]
+layout_mode = 2
+
+[node name="NombreInput" type="LineEdit" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainerNombre" unique_id=473869540]
+layout_mode = 2
+placeholder_text = "Nombre"
+
+[node name="VBoxContainerApellido" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2126804306]
+layout_mode = 2
+
+[node name="ApellidoInput" type="LineEdit" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainerApellido" unique_id=1177492094]
+layout_mode = 2
+placeholder_text = "Apellido"
+
+[node name="VBoxContainerEmail" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1348775274]
+layout_mode = 2
+
+[node name="EmailInput" type="LineEdit" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainerEmail" unique_id=1926016155]
+layout_mode = 2
+placeholder_text = "correo"
+
+[node name="VBoxContainerPass" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1837701736]
+layout_mode = 2
+
+[node name="HBoxContainerPass" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainerPass" unique_id=1464921280]
+layout_mode = 2
+
+[node name="PasswordInput" type="LineEdit" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainerPass/HBoxContainerPass" unique_id=1077684567]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "password"
+secret = true
+
+[node name="TogglePassButton" type="TextureButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainerPass/HBoxContainerPass" unique_id=1577992384]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainerPass/HBoxContainerPass/TogglePassButton" unique_id=819556541]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainerPassCheck" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainerPass" unique_id=1136532807]
+layout_mode = 2
+
+[node name="LblMinLength" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainerPass/VBoxContainerPassCheck" unique_id=779750397]
+layout_mode = 2
+text = "• Mínimo 8 caracteres"
+
+[node name="LblUpper" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainerPass/VBoxContainerPassCheck" unique_id=2063900743]
+layout_mode = 2
+text = "• Al menos una mayúscula"
+
+[node name="LblNumber" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainerPass/VBoxContainerPassCheck" unique_id=35278201]
+layout_mode = 2
+text = "• Al menos un número"
+
+[node name="LblSpecial" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainerPass/VBoxContainerPassCheck" unique_id=1443710826]
+layout_mode = 2
+text = "• Al menos un carácter especial (!@#$%^&*)"
+
+[node name="VBoxContainerMFA" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=936136414]
+layout_mode = 2
+
+[node name="CaptchaCheckBox" type="CheckBox" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainerMFA" unique_id=205078069]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_th0y5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ul2ju")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n2w5e")
+text = "  No soy un Robot!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1271290788]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="DocumentoDialog" type="FileDialog" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=319093889]
+oversampling_override = 1.0
+title = "Open a File"
+position = Vector2i(0, 36)
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.pdf", "*.jpg", "*.jpeg")
+use_native_dialog = true
+
+[node name="SelectFileButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=947481700]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "seleccionar archivo"
+
+[node name="SelectedFileLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1625960398]
+layout_mode = 2
+text = "Subir DPI"
+
+[node name="RegisterButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=508136539]
+layout_mode = 2
+text = "Registrarse"
+
+[node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=592498616]
+layout_mode = 2
+text = "Back"
+
+[node name="StatusLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=250774197]
+layout_mode = 2
