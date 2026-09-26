@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://mpxng34djkqe"]
+
+[ext_resource type="FontFile" uid="uid://b7ocw3n7eslwu" path="res://assets/fonts/Poppins-Bold.ttf" id="1_n6adf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scrd4"]
+bg_color = Color(0.11764706, 0.64705884, 0.9882353, 0.7058824)
+border_width_bottom = 6
+border_color = Color(0.05490196, 0.43137255, 0.6901961, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwqan"]
+bg_color = Color(0.07433915, 0.4709499, 0.72654337, 0.7058824)
+border_width_bottom = 6
+border_color = Color(0.05490196, 0.43137255, 0.6901961, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1tes4"]
+bg_color = Color(0.11764706, 0.64705884, 0.9882353, 0.7058824)
+border_width_bottom = 6
+border_color = Color(0.05490196, 0.43137255, 0.6901961, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lm8mu"]
+bg_color = Color(0.07433915, 0.4709499, 0.72654337, 0.7058824)
+border_width_bottom = 6
+border_color = Color(0.05490196, 0.43137255, 0.6901961, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="LevelButton" type="Button" unique_id=2101781869]
+custom_minimum_size = Vector2(80, 80)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_n6adf")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_scrd4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mwqan")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1tes4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lm8mu")

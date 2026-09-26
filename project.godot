@@ -11,17 +11,16 @@ config_version=5
 [application]
 
 config/name="InkMath"
-run/main_scene="uid://d08rwjrcscurp"
-config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
+run/main_scene="uid://caottskjpesrt"
+config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [autoload]
 
-ApiService="*uid://b6a7lbqboujya"
+GameManager="*uid://ikm4qay31jcu"
+ApiService="*uid://b71djfour0irs"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
