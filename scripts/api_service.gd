@@ -5,7 +5,10 @@ var auth_token: String = ""
 var base_url: String = "https://localhost:7222/api/"
 
 func _ready() -> void:
-	if OS.get_name() == "Web" or OS.has_feature("web"):
+	if OS.has_feature("web"):
+		var origen = JavaScriptBridge.eval("window.location.origin")
+		if origen != null and str(origen).begins_with("http"):
+			base_url = str(origen) + "/api/"
 		print("[ApiService] 🌐 Ejecutando en entorno Web. Base URL configurada a: ", base_url)
 	else:
 		print("[ApiService] 💻 Ejecutando en Desktop/Editor. Base URL configurada a: ", base_url)
