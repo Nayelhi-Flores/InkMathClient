@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://mpxng34djkqe" path="res://scenes/Prefabs/level_button.tscn" id="2_opkvm"]
 [ext_resource type="PackedScene" uid="uid://cx7q5hq1wp08y" path="res://scenes/quiz_scene.tscn" id="3_tbree"]
 [ext_resource type="FontFile" uid="uid://rergs07db2u0" path="res://assets/fonts/Poppins-Medium.ttf" id="4_tbree"]
+[ext_resource type="FontFile" uid="uid://b7ocw3n7eslwu" path="res://assets/fonts/Poppins-Bold.ttf" id="5_p83cf"]
+[ext_resource type="Texture2D" uid="uid://cc8u0ekmsh3h7" path="res://assets/items/iconos_navBar5.png" id="5_wtj8f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p83cf"]
 content_margin_left = 16.0
@@ -137,13 +139,23 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_tbree")
 text = "Salir"
 
 [node name="BtnSimulacion" type="Button" parent="MainLayoutVBox/TopHeaderMargin/TopHeaderHBox" unique_id=1636587533]
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_tbree")
 theme_override_styles/normal = SubResource("StyleBoxFlat_k0yba")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wn6ih")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fpao0")
 text = "Simulación"
+
+[node name="TextureRect" type="TextureRect" parent="MainLayoutVBox/TopHeaderMargin/TopHeaderHBox" unique_id=1476429468]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("5_wtj8f")
+expand_mode = 1
+
+[node name="Monedas" type="Label" parent="MainLayoutVBox/TopHeaderMargin/TopHeaderHBox" unique_id=1299259283]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_p83cf")
+theme_override_font_sizes/font_size = 22
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MainLayoutVBox" unique_id=706459229]
 custom_minimum_size = Vector2(400, 0)

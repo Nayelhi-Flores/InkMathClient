@@ -12,16 +12,19 @@ class NivelDto:
 	var intentos: int = 0
 
 	static func from_dictionary(dict: Dictionary) -> NivelDto:
-		var dto = NivelDto.new()
-		dto.nivel_id = int(dict.get("nivelId", 0))
-		dto.test_id = int(dict.get("testId", 0))
+		var dto := NivelDto.new()
+		dto.nivel_id = _i(dict.get("nivelId"))
+		dto.test_id = _i(dict.get("testId"))   # long? en la API: puede venir null
 		dto.titulo = str(dict.get("titulo", ""))
 		dto.categoria = str(dict.get("categoria", ""))
-		dto.orden = int(dict.get("orden", 0))
-		dto.estado = str(dict.get("estado", ""))
-		dto.puntaje = int(dict.get("puntaje", 0))
-		dto.intentos = int(dict.get("intentos", 0))
+		dto.orden = _i(dict.get("orden"))
+		dto.estado = str(dict.get("estado", "No Iniciado"))
+		dto.puntaje = _i(dict.get("puntaje"))
+		dto.intentos = _i(dict.get("intentos"))
 		return dto
+
+	static func _i(v: Variant) -> int:
+		return int(v) if v != null else 0
 
 class TestEvaluacionDto:
 	var test_id: int = 0
