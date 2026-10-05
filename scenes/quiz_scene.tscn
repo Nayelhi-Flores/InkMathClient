@@ -69,9 +69,7 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 
 [node name="TopHeaderMargin" type="MarginContainer" parent="MainVBox" unique_id=2025771940]
-custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_constants/margin_top = 20
 
 [node name="TopHeaderHBox" type="HBoxContainer" parent="MainVBox/TopHeaderMargin" unique_id=1010988375]
@@ -103,9 +101,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("4_ndxw5")
 
 [node name="ProgressBarContainer" type="MarginContainer" parent="MainVBox" unique_id=1281085104]
-custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-size_flags_horizontal = 4
 
 [node name="ProgressBar" type="ProgressBar" parent="MainVBox/ProgressBarContainer" unique_id=200194864]
 custom_minimum_size = Vector2(0, 8)
@@ -116,9 +112,8 @@ step = 1.0
 show_percentage = false
 
 [node name="MainCard" type="PanelContainer" parent="MainVBox" unique_id=1560931967]
-custom_minimum_size = Vector2(350, 350)
+custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_c7ybq")
 
 [node name="CardMargin" type="MarginContainer" parent="MainVBox/MainCard" unique_id=884843013]

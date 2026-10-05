@@ -31,31 +31,6 @@
 [ext_resource type="FontFile" uid="uid://b7ocw3n7eslwu" path="res://assets/fonts/Poppins-Bold.ttf" id="28_33a00"]
 [ext_resource type="FontFile" uid="uid://dvpepkv6a4ln5" path="res://assets/fonts/Poppins-Regular.ttf" id="28_sfxs6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmqm3"]
-bg_color = Color(0.23529412, 0.62352943, 0.3764706, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g70vv"]
-bg_color = Color(0, 0.11372549, 0.21568628, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0.11372549, 0.21568628, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-shadow_color = Color(0, 0, 0, 0.15)
-shadow_size = 10
-shadow_offset = Vector2(0, 8)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsl8c"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmw26"]
 content_margin_left = 16.0
 content_margin_right = 16.0
@@ -101,6 +76,31 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmqm3"]
+bg_color = Color(0.23529412, 0.62352943, 0.3764706, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g70vv"]
+bg_color = Color(0, 0.11372549, 0.21568628, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.11372549, 0.21568628, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.15)
+shadow_size = 10
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsl8c"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5njp6"]
 bg_color = Color(0.9372549, 0.9647059, 1, 1)
@@ -341,61 +341,33 @@ texture = ExtResource("26_k2e08")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=923222605]
+[node name="Column" type="VBoxContainer" parent="." unique_id=70288547]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 96
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
-
-[node name="Column" type="VBoxContainer" parent="MarginContainer" unique_id=70288547]
-layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
-theme_override_constants/separation = 20
 
-[node name="ShelfCard" type="PanelContainer" parent="MarginContainer/Column" unique_id=2097098424]
-custom_minimum_size = Vector2(400, 64)
+[node name="TopArea" type="MarginContainer" parent="Column" unique_id=923222605]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nmqm3")
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="Shelf" type="HBoxContainer" parent="MarginContainer/Column/ShelfCard" unique_id=1260521115]
+[node name="Stack" type="VBoxContainer" parent="Column/TopArea" unique_id=1933405013]
 layout_mode = 2
+theme_override_constants/separation = 12
 
-[node name="OrderBubble" type="PanelContainer" parent="MarginContainer/Column" unique_id=1987602951]
-custom_minimum_size = Vector2(0, 52)
+[node name="TopBar" type="HBoxContainer" parent="Column/TopArea/Stack" unique_id=367585494]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_g70vv")
+alignment = 1
 
-[node name="OrderList" type="HBoxContainer" parent="MarginContainer/Column/OrderBubble" unique_id=121432151]
+[node name="BackBtn" type="Button" parent="Column/TopArea/Stack/TopBar" unique_id=1246482953]
 layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="CustomerSlot" type="PanelContainer" parent="MarginContainer/Column" unique_id=760695786]
-custom_minimum_size = Vector2(250, 125)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qsl8c")
-
-[node name="Customer" type="Sprite2D" parent="MarginContainer" unique_id=1150920705]
-
-[node name="AnimTimer" type="Timer" parent="MarginContainer/Customer" unique_id=299095349]
-
-[node name="HUD" type="CanvasLayer" parent="." unique_id=2086553443]
-
-[node name="BackBtn" type="Button" parent="HUD" unique_id=1246482953]
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.08
-anchor_right = 0.05
-anchor_bottom = 0.08
 theme_override_fonts/font = ExtResource("18_mcj26")
 theme_override_styles/normal = SubResource("StyleBoxFlat_gmw26")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bftsm")
@@ -403,79 +375,106 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_mcj26")
 theme_override_styles/focus = SubResource("StyleBoxFlat_ulnbo")
 text = "Salir"
 
-[node name="TopBar" type="HBoxContainer" parent="HUD" unique_id=367585494]
-custom_minimum_size = Vector2(400, 0)
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.05
-anchor_right = 0.5
-anchor_bottom = 0.05
-grow_horizontal = 2
-alignment = 1
-
-[node name="ScoreLabel" type="Label" parent="HUD/TopBar" unique_id=2095873855]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.11372549, 0.21568628, 1)
-theme_override_font_sizes/font_size = 24
-
-[node name="Control" type="Control" parent="HUD/TopBar" unique_id=142742632]
+[node name="Control2" type="Control" parent="Column/TopArea/Stack/TopBar" unique_id=1913876419]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LabelTimer" type="Label" parent="HUD/TopBar" unique_id=2008253850]
+[node name="ScoreLabel" type="Label" parent="Column/TopArea/Stack/TopBar" unique_id=2095873855]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.11372549, 0.21568628, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="Control" type="Control" parent="Column/TopArea/Stack/TopBar" unique_id=852033407]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelTimer" type="Label" parent="Column/TopArea/Stack/TopBar" unique_id=2008253850]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
 theme_override_fonts/font = ExtResource("28_33a00")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 
-[node name="CalcPanel" type="PanelContainer" parent="HUD" unique_id=1899323746]
-custom_minimum_size = Vector2(200, 0)
+[node name="ShelfCard" type="PanelContainer" parent="Column/TopArea/Stack" unique_id=2097098424]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nmqm3")
+
+[node name="Shelf" type="HBoxContainer" parent="Column/TopArea/Stack/ShelfCard" unique_id=1260521115]
+layout_mode = 2
+
+[node name="OrderBubble" type="PanelContainer" parent="Column/TopArea/Stack" unique_id=1987602951]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g70vv")
+
+[node name="OrderList" type="HBoxContainer" parent="Column/TopArea/Stack/OrderBubble" unique_id=121432151]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CustomerSlot" type="PanelContainer" parent="Column/TopArea/Stack" unique_id=760695786]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qsl8c")
+
+[node name="HUD" type="Control" parent="Column" unique_id=555677092]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="CalcPanel" type="PanelContainer" parent="Column/HUD" unique_id=1899323746]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.8
-anchor_right = 0.5
-anchor_bottom = 0.8
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 0.75
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5njp6")
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/CalcPanel" unique_id=726159643]
+[node name="MarginContainer" type="MarginContainer" parent="Column/HUD/CalcPanel" unique_id=726159643]
 layout_mode = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/CalcPanel/MarginContainer" unique_id=511801869]
+[node name="VBoxContainer" type="VBoxContainer" parent="Column/HUD/CalcPanel/MarginContainer" unique_id=511801869]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="PaidLabel" type="Label" parent="HUD/CalcPanel/MarginContainer/VBoxContainer" unique_id=912053552]
+[node name="PaidLabel" type="Label" parent="Column/HUD/CalcPanel/MarginContainer/VBoxContainer" unique_id=912053552]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.11372549, 0.21568628, 1)
 theme_override_fonts/font = ExtResource("18_mcj26")
 
-[node name="ChangeInput" type="LineEdit" parent="HUD/CalcPanel/MarginContainer/VBoxContainer" unique_id=1299680179]
+[node name="ChangeInput" type="LineEdit" parent="Column/HUD/CalcPanel/MarginContainer/VBoxContainer" unique_id=1299680179]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("28_sfxs6")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_ausht")
 
-[node name="Keypad" type="GridContainer" parent="HUD/CalcPanel/MarginContainer/VBoxContainer" unique_id=429834731]
+[node name="Keypad" type="GridContainer" parent="Column/HUD/CalcPanel/MarginContainer/VBoxContainer" unique_id=429834731]
 layout_mode = 2
 columns = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/CalcPanel/MarginContainer/VBoxContainer" unique_id=882290464]
+[node name="HBoxContainer" type="HBoxContainer" parent="Column/HUD/CalcPanel/MarginContainer/VBoxContainer" unique_id=882290464]
 layout_mode = 2
 
-[node name="CheckBtn" type="Button" parent="HUD/CalcPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1743539370]
+[node name="CheckBtn" type="Button" parent="Column/HUD/CalcPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1743539370]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_sfxs6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_33a00")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cb0qv")
 theme_override_styles/focus = SubResource("StyleBoxFlat_vvksi")
 
-[node name="Feedback" type="Label" parent="HUD/CalcPanel/MarginContainer/VBoxContainer" unique_id=9088559]
+[node name="Feedback" type="Label" parent="Column/HUD/CalcPanel/MarginContainer/VBoxContainer" unique_id=9088559]
 layout_mode = 2
 
-[node name="FeedbackPanel" parent="HUD" unique_id=1103083211 instance=ExtResource("16_nrlqo")]
+[node name="FeedbackPanel" parent="Column/HUD" unique_id=1103083211 instance=ExtResource("16_nrlqo")]
+layout_mode = 1
+
+[node name="Customer" type="Sprite2D" parent="Column" unique_id=1150920705]
+
+[node name="AnimTimer" type="Timer" parent="Column/Customer" unique_id=299095349]

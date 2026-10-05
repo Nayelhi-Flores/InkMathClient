@@ -1,5 +1,6 @@
 extends Control
 
+@export var column_ratio := 0.7
 @export var option_button_prefab: PackedScene = preload("res://scenes/Prefabs/option_button.tscn")
 
 @export var progress_bar_questions_path: NodePath
@@ -45,6 +46,10 @@ var _is_timer_running: bool = false
 
 
 func _ready() -> void:
+	var contenido := get_node_or_null("MainVBox") as Control
+	if contenido:
+		_limitar_ancho(contenido)
+		get_viewport().size_changed.connect(func(): _limitar_ancho(contenido))
 	if _feedback_panel:
 		_feedback_panel.hide()
 	if _btn_home: _btn_home.pressed.connect(_on_btn_home_pressed)
@@ -71,6 +76,17 @@ func _process(delta: float) -> void:
 		_is_timer_running = false
 		_manejar_tiempo_agotado()
 
+# ---------- Adaptar Pantalla ----------
+func _limitar_ancho(nodo: Control) -> void:
+	var vp := get_viewport_rect().size
+	if vp.x <= 0.0:
+		return
+	var w := minf(vp.x, vp.y * column_ratio)
+	var m := (vp.x - w) / 2.0 / vp.x
+	nodo.anchor_left = m
+	nodo.anchor_right = 1.0 - m
+	nodo.offset_left = 0
+	nodo.offset_right = 0
 
 func _cargar_test_desde_api(test_id: int) -> void:
 	var respuesta := await ApiService.obtener_preguntas_test_async(test_id)

@@ -21,6 +21,8 @@ ApiService="*uid://b71djfour0irs"
 
 [display]
 
+window/size/viewport_width=360
+window/size/viewport_height=640
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

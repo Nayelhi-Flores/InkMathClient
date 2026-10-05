@@ -119,15 +119,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TopHeaderMargin" type="MarginContainer" parent="MainLayoutVBox" unique_id=621420925]
-custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 64
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="TopHeaderHBox" type="HBoxContainer" parent="MainLayoutVBox/TopHeaderMargin" unique_id=376884013]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 20
 
 [node name="BtnBack" type="Button" parent="MainLayoutVBox/TopHeaderMargin/TopHeaderHBox" unique_id=962907665]
 layout_mode = 2
@@ -155,10 +155,9 @@ expand_mode = 1
 [node name="Monedas" type="Label" parent="MainLayoutVBox/TopHeaderMargin/TopHeaderHBox" unique_id=1299259283]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_p83cf")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 20
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MainLayoutVBox" unique_id=706459229]
-custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
@@ -166,17 +165,28 @@ vertical_scroll_mode = 3
 
 [node name="NivelesContainer" type="VBoxContainer" parent="MainLayoutVBox/ScrollContainer" unique_id=171389345]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 3
 theme_override_constants/separation = 64
 alignment = 1
 
 [node name="BottomNavbarMargin" type="MarginContainer" parent="MainLayoutVBox" unique_id=1593888537]
-custom_minimum_size = Vector2(0, 80)
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="BottomNavbarHBox" type="HBoxContainer" parent="MainLayoutVBox/BottomNavbarMargin" unique_id=233671061]
 layout_mode = 2
+
+[node name="BtnFormulario" type="Button" parent="MainLayoutVBox/BottomNavbarMargin/BottomNavbarHBox" unique_id=637589205]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_tbree")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k0yba")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wn6ih")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fpao0")
+text = "Formulario"
 
 [connection signal="pressed" from="MainLayoutVBox/TopHeaderMargin/TopHeaderHBox/BtnBack" to="." method="_on_btn_back_pressed"]
 [connection signal="pressed" from="MainLayoutVBox/TopHeaderMargin/TopHeaderHBox/BtnSimulacion" to="." method="_on_btn_simulacion_pressed"]

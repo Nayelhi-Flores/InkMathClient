@@ -21,6 +21,7 @@ func _manejar_no_autorizado() -> void:
 # Devuelve [status_http, body]. status 0 = fallo de red/timeout.
 func _send(method: int, endpoint: String, payload: Variant = null) -> Array:
 	var http := HTTPRequest.new()
+	http.accept_gzip = false
 	http.timeout = REQUEST_TIMEOUT
 	add_child(http)
 

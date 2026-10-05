@@ -1,5 +1,6 @@
 extends Control
 
+@export var column_ratio := 0.7
 @export var niveles_container_path: NodePath
 @export var level_button_prefab: PackedScene
 @export var quiz_scene: PackedScene
@@ -18,6 +19,10 @@ var _niveles: Array[Models.NivelDto] = []
 
 
 func _ready() -> void:
+	var contenido := get_node_or_null("MainLayoutVBox") as Control
+	if contenido:
+		_limitar_ancho(contenido)
+		get_viewport().size_changed.connect(func(): _limitar_ancho(contenido))
 	if _label_monedas == null:
 		_label_monedas = find_child("Monedas", true, false) as Label
 	GameManager.monedas_actualizadas.connect(_mostrar_monedas)
@@ -27,6 +32,17 @@ func _ready() -> void:
 	_cargar_monedas()
 	_cargar_niveles()
 
+# ---------- Adaptar Pantalla ----------
+func _limitar_ancho(nodo: Control) -> void:
+	var vp := get_viewport_rect().size
+	if vp.x <= 0.0:
+		return
+	var w := minf(vp.x, vp.y * column_ratio)
+	var m := (vp.x - w) / 2.0 / vp.x
+	nodo.anchor_left = m
+	nodo.anchor_right = 1.0 - m
+	nodo.offset_left = 0
+	nodo.offset_right = 0
 
 # ---------- Monedas ----------
 func _cargar_monedas() -> void:
