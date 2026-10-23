@@ -1,6 +1,7 @@
 extends Control
 
 @export var column_ratio := 0.7
+@onready var _btn_formulario: Button = get_node_or_null("MainLayoutVBox/BottomNavbarMargin/BottomNavbarHBox/BtnFormulario")
 @export var niveles_container_path: NodePath
 @export var level_button_prefab: PackedScene
 @export var quiz_scene: PackedScene
@@ -19,10 +20,13 @@ var _niveles: Array[Models.NivelDto] = []
 
 
 func _ready() -> void:
+	AudioManager.stop_music()
 	var contenido := get_node_or_null("MainLayoutVBox") as Control
 	if contenido:
 		_limitar_ancho(contenido)
 		get_viewport().size_changed.connect(func(): _limitar_ancho(contenido))
+	if _btn_formulario and not _btn_formulario.pressed.is_connected(_on_btn_formulario_pressed):
+		_btn_formulario.pressed.connect(_on_btn_formulario_pressed)
 	if _label_monedas == null:
 		_label_monedas = find_child("Monedas", true, false) as Label
 	GameManager.monedas_actualizadas.connect(_mostrar_monedas)
@@ -151,3 +155,9 @@ func _on_btn_back_pressed() -> void:
 
 func _on_btn_simulacion_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/tienda.tscn")
+	
+func _on_btn_formulario_pressed() -> void:
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.location.href = '/formulario.html';")
+	else:
+		OS.shell_open("https://inkmath.online/formulario.html")

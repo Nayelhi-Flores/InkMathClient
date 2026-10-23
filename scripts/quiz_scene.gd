@@ -2,6 +2,9 @@ extends Control
 
 @export var column_ratio := 0.7
 @export var option_button_prefab: PackedScene = preload("res://scenes/Prefabs/option_button.tscn")
+@onready var _btn_pause: Button = find_child("BtnPause", true, false) as Button
+var _paused: bool = false
+var _pause: PauseOverlay
 
 @export var progress_bar_questions_path: NodePath
 @export var label_timer_path: NodePath
@@ -46,6 +49,13 @@ var _is_timer_running: bool = false
 
 
 func _ready() -> void:
+	_pause = PauseOverlay.new()
+	add_child(_pause)
+	_pause.resumed.connect(func(): _paused = false)
+	_pause.exit_requested.connect(_volver_al_mapa)
+	if _btn_pause:
+		_btn_pause.pressed.connect(_abrir_pausa)
+		
 	var contenido := get_node_or_null("MainVBox") as Control
 	if contenido:
 		_limitar_ancho(contenido)
@@ -64,7 +74,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if not _is_timer_running:
+	if not _is_timer_running or _paused:
 		return
 	_time_remaining -= delta
 	if _label_timer:
@@ -138,7 +148,7 @@ func _cargar_pregunta_actual() -> void:
 
 
 func _validar_respuesta(pregunta: Dictionary, opt: Dictionary) -> void:
-	if not _is_timer_running:
+	if not _is_timer_running or _paused:
 		return
 	_is_timer_running = false
 	if _options_container:
@@ -180,7 +190,7 @@ func _finalizar_test_async() -> void:
 	_is_timer_running = false
 	if _main_vbox:
 		_main_vbox.hide()
-
+	
 	# El servidor toma el estudiante del token y fija las fechas; solo se envía el ticket.
 	var payload := {
 		"testId": _test_id,
@@ -213,6 +223,7 @@ func _mostrar_modal_feedback(aciertos: int, total: int, monedas: int, ok: bool) 
 		if not ok:
 			_label_status_title.text = "No se pudo guardar tu resultado"
 		else:
+			AudioManager.play_result(completado)
 			_label_status_title.text = "¡NIVEL COMPLETADO!" if completado else "¡INTÉNTALO DE NUEVO!"
 	if _label_accuracy:
 		_label_accuracy.text = "Aciertos: %d / %d" % [aciertos, total] if ok else "Revisa tu conexión"
@@ -244,3 +255,13 @@ func _on_btn_next_pressed() -> void:
 		return
 	GameManager.selected_test_id = nxt
 	get_tree().reload_current_scene()
+
+func _abrir_pausa() -> void:
+	if _paused or (_feedback_panel and _feedback_panel.visible):
+		return
+	_paused = true
+	_pause.open()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		_abrir_pausa()

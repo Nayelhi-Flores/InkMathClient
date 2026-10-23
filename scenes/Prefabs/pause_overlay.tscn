@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ckxj0khsejmhh"]
+
+[ext_resource type="Script" uid="uid://mjs5wje50lox" path="res://scenes/Prefabs/pause_overlay.gd" id="1_o8e43"]
+
+[node name="PauseOverlay" type="Control" unique_id=142496020]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_o8e43")

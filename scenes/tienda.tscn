@@ -77,6 +77,39 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d63wj"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.972549, 0.44313726, 0.44313726, 1)
+border_width_bottom = 4
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gldjl"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2e08"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmqm3"]
 bg_color = Color(0.23529412, 0.62352943, 0.3764706, 1)
 corner_radius_top_left = 12
@@ -364,6 +397,7 @@ theme_override_constants/separation = 12
 
 [node name="TopBar" type="HBoxContainer" parent="Column/TopArea/Stack" unique_id=367585494]
 layout_mode = 2
+theme_override_constants/separation = 24
 alignment = 1
 
 [node name="BackBtn" type="Button" parent="Column/TopArea/Stack/TopBar" unique_id=1246482953]
@@ -375,24 +409,26 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_mcj26")
 theme_override_styles/focus = SubResource("StyleBoxFlat_ulnbo")
 text = "Salir"
 
-[node name="Control2" type="Control" parent="Column/TopArea/Stack/TopBar" unique_id=1913876419]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="ScoreLabel" type="Label" parent="Column/TopArea/Stack/TopBar" unique_id=2095873855]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.11372549, 0.21568628, 1)
 theme_override_font_sizes/font_size = 20
 
-[node name="Control" type="Control" parent="Column/TopArea/Stack/TopBar" unique_id=852033407]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="LabelTimer" type="Label" parent="Column/TopArea/Stack/TopBar" unique_id=2008253850]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
 theme_override_fonts/font = ExtResource("28_33a00")
 theme_override_font_sizes/font_size = 20
+
+[node name="PauseBtn" type="Button" parent="Column/TopArea/Stack/TopBar" unique_id=1708267942]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("28_33a00")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d63wj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gldjl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d63wj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k2e08")
+text = "I I"
 
 [node name="ShelfCard" type="PanelContainer" parent="Column/TopArea/Stack" unique_id=2097098424]
 custom_minimum_size = Vector2(0, 60)
@@ -472,9 +508,9 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_vvksi")
 [node name="Feedback" type="Label" parent="Column/HUD/CalcPanel/MarginContainer/VBoxContainer" unique_id=9088559]
 layout_mode = 2
 
-[node name="FeedbackPanel" parent="Column/HUD" unique_id=1103083211 instance=ExtResource("16_nrlqo")]
-layout_mode = 1
-
 [node name="Customer" type="Sprite2D" parent="Column" unique_id=1150920705]
 
 [node name="AnimTimer" type="Timer" parent="Column/Customer" unique_id=299095349]
+
+[node name="FeedbackPanel" parent="." unique_id=1103083211 instance=ExtResource("16_nrlqo")]
+layout_mode = 1

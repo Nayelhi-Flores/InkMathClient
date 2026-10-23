@@ -2,8 +2,42 @@
 
 [ext_resource type="Script" uid="uid://dxp01t5gyrk5t" path="res://scripts/quiz_scene.gd" id="1_c7ybq"]
 [ext_resource type="FontFile" uid="uid://rergs07db2u0" path="res://assets/fonts/Poppins-Medium.ttf" id="2_yjr3o"]
+[ext_resource type="FontFile" uid="uid://b7ocw3n7eslwu" path="res://assets/fonts/Poppins-Bold.ttf" id="3_l6nb4"]
 [ext_resource type="PackedScene" uid="uid://dt7kgc13lwlub" path="res://scenes/Prefabs/feedback_modal.tscn" id="4_l6nb4"]
 [ext_resource type="FontFile" uid="uid://dvpepkv6a4ln5" path="res://assets/fonts/Poppins-Regular.ttf" id="4_ndxw5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijcxg"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.972549, 0.44313726, 0.44313726, 1)
+border_width_bottom = 4
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfjul"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkpib"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6nb4"]
 bg_color = Color(0.39215687, 0.45490196, 0.54509807, 1)
@@ -99,6 +133,15 @@ layout_mode = 2
 [node name="LabelTimer" type="Label" parent="MainVBox/TopHeaderMargin/TopHeaderHBox/TimerBadge/TimerHBox" unique_id=235578082]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_ndxw5")
+
+[node name="BtnPause" type="Button" parent="MainVBox/TopHeaderMargin/TopHeaderHBox" unique_id=1239102392]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_l6nb4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ijcxg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jfjul")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ijcxg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_tkpib")
+text = "I I"
 
 [node name="ProgressBarContainer" type="MarginContainer" parent="MainVBox" unique_id=1281085104]
 layout_mode = 2

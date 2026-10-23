@@ -1,5 +1,9 @@
 extends Control
 
+@onready var pause_btn: Button = _fn("PauseBtn")
+var _paused := false
+var _pause: PauseOverlay
+
 const TOTAL_CLIENTES := 5
 @export var CLIENT_TIME_LIMIT := 20.0
 
@@ -114,13 +118,23 @@ func _ready() -> void:
 	final_modal.hide()
 
 	_apply_column()
+	_pause = PauseOverlay.new()
+	add_child(_pause)   # el último hijo queda por encima de todo
+	_pause.resumed.connect(func():
+		_paused = false
+		anim_timer.paused = false)
+	_pause.exit_requested.connect(func(): get_tree().change_scene_to_file(menu_scene))
+	pause_btn.pressed.connect(_abrir_pausa)
+	
+	AudioManager.play_music()
+	
 	await get_tree().process_frame   # deja que los contenedores calculen tamaños
 	_layout()
 	_load_customer()
 
 
 func _process(delta: float) -> void:
-	if not _is_timer_running:
+	if not _is_timer_running or _paused:
 		return
 	_time_remaining -= delta
 	if timer_label != null:
@@ -306,7 +320,7 @@ func _customer_leave() -> Tween:
 
 # ---------- VALIDACIÓN Y TIEMPO ----------
 func _on_check_pressed() -> void:
-	if _locked or _moving:
+	if _locked or _moving or _paused:
 		return
 	if solved:
 		_next_step()
@@ -379,6 +393,7 @@ func _open_final() -> void:
 	_is_timer_running = false
 	anim_timer.stop()
 	var pct := roundi(float(correct) / TOTAL_CLIENTES * 100.0)
+	AudioManager.play_result(pct >= 50)
 	modal_title.text = "¡Nivel completado!" if pct >= 50 else "¡Sigue intentando!"
 	modal_accuracy.text = "Aciertos: %d/%d (%d%%)" % [correct, TOTAL_CLIENTES, pct]
 	modal_coins.text = "Modo práctica"   # la tienda aún no acredita monedas en el servidor
@@ -408,7 +423,7 @@ func _build_keypad() -> void:
 
 
 func _on_key(k: String) -> void:
-	if _locked or _moving or solved:
+	if _locked or _moving or solved or _paused:
 		return
 	match k:
 		"DEL":
@@ -418,3 +433,15 @@ func _on_key(k: String) -> void:
 		_:
 			if change_input.text.length() < 4:
 				change_input.text += k
+
+func _abrir_pausa() -> void:
+	if _paused or final_modal.visible:
+		return
+	_paused = true
+	anim_timer.paused = true
+	_pause.open()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		_abrir_pausa()

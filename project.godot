@@ -14,10 +14,15 @@ config/name="InkMath"
 run/main_scene="uid://caottskjpesrt"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
+[audio]
+
+general/default_playback_type.web=0
+
 [autoload]
 
 GameManager="*uid://ikm4qay31jcu"
 ApiService="*uid://b71djfour0irs"
+AudioManager="*uid://dpabnvax2h71w"
 
 [display]
 
