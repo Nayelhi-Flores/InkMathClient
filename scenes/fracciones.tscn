@@ -2,6 +2,180 @@
 
 [ext_resource type="Script" uid="uid://c78grv2vyc4ug" path="res://scripts/fracciones.gd" id="1_2li8k"]
 [ext_resource type="PackedScene" uid="uid://dt7kgc13lwlub" path="res://scenes/Prefabs/feedback_modal.tscn" id="1_v3rcf"]
+[ext_resource type="FontFile" uid="uid://rergs07db2u0" path="res://assets/fonts/Poppins-Medium.ttf" id="2_0pyms"]
+[ext_resource type="Texture2D" uid="uid://ds3qirypxhew4" path="res://assets/FONDO MARINO/FONDO MARINO1.png" id="2_tlnre"]
+[ext_resource type="FontFile" uid="uid://b7ocw3n7eslwu" path="res://assets/fonts/Poppins-Bold.ttf" id="3_tlnre"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ummv"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.972549, 0.44313726, 0.44313726, 1)
+border_width_bottom = 4
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18n2d"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30n6y"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.972549, 0.44313726, 0.44313726, 1)
+border_width_bottom = 4
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmr5a"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fm6py"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.972549, 0.44313726, 0.44313726, 1)
+border_width_bottom = 4
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pp0bn"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipx5c"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g70vv"]
+bg_color = Color(0, 0.11372549, 0.21568628, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.11372549, 0.21568628, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.15)
+shadow_size = 10
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwey2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0pyms"]
+bg_color = Color(0.9372549, 0.9647059, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.11372549, 0.21568628, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.15)
+shadow_size = 10
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tlnre"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.03529412, 0.48235294, 0.7137255, 1)
+border_width_bottom = 4
+border_color = Color(0.019607844, 0.3137255, 0.46666667, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ly0c"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.03529412, 0.48235294, 0.7137255, 1)
+border_color = Color(0.019607844, 0.3137255, 0.46666667, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wc4n2"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.01764706, 0.34755984, 0.5208934, 1)
+border_width_bottom = 4
+border_color = Color(0.019607844, 0.3137255, 0.46666667, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qndga"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.03529412, 0.48235294, 0.7137255, 1)
+border_width_bottom = 4
+border_color = Color(0.019607844, 0.3137255, 0.46666667, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufjvj"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.03529412, 0.48235294, 0.7137255, 1)
+border_color = Color(0.019607844, 0.3137255, 0.46666667, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Fracciones" type="Control" unique_id=369217263]
 layout_mode = 3
@@ -20,6 +194,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = ExtResource("2_tlnre")
 expand_mode = 1
 stretch_mode = 6
 
@@ -32,97 +207,117 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Margin" type="MarginContainer" parent="." unique_id=348289491]
+[node name="Margin" type="MarginContainer" parent="Column" unique_id=348289491]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="Stack" type="VBoxContainer" parent="." unique_id=1120985606]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Stack" type="VBoxContainer" parent="Column/Margin" unique_id=1120985606]
+layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="TopBar" type="HBoxContainer" parent="Stack" unique_id=857625374]
+[node name="TopBar" type="HBoxContainer" parent="Column/Margin/Stack" unique_id=857625374]
 layout_mode = 2
 
-[node name="BackBtn" type="Button" parent="Stack/TopBar" unique_id=1197042328]
-custom_minimum_size = Vector2(44, 44)
+[node name="BackBtn" type="Button" parent="Column/Margin/Stack/TopBar" unique_id=862613228]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0pyms")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ummv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_18n2d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_30n6y")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fmr5a")
+text = "Salir"
 
-[node name="LevelLabel" type="Label" parent="Stack/TopBar" unique_id=1828700396]
+[node name="LevelLabel" type="Label" parent="Column/Margin/Stack/TopBar" unique_id=1828700396]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 horizontal_alignment = 1
 
-[node name="PauseBtn" type="Button" parent="Stack/TopBar" unique_id=1844332294]
-custom_minimum_size = Vector2(44, 44)
+[node name="PauseBtn" type="Button" parent="Column/Margin/Stack/TopBar" unique_id=1431216704]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_tlnre")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fm6py")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pp0bn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fm6py")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ipx5c")
+text = "I I"
 
-[node name="OrderCard" type="PanelContainer" parent="Stack" unique_id=1315441561]
+[node name="OrderCard" type="PanelContainer" parent="Column/Margin/Stack" unique_id=1315441561]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g70vv")
 
-[node name="MarginContainer" type="MarginContainer" parent="Stack/OrderCard" unique_id=981782169]
+[node name="MarginContainer" type="MarginContainer" parent="Column/Margin/Stack/OrderCard" unique_id=981782169]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="OrderLabel" type="Label" parent="Stack/OrderCard/MarginContainer" unique_id=902783181]
+[node name="OrderLabel" type="Label" parent="Column/Margin/Stack/OrderCard/MarginContainer" unique_id=902783181]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="PizzaCard" type="PanelContainer" parent="Stack" unique_id=1310425654]
+[node name="PizzaCard" type="PanelContainer" parent="Column/Margin/Stack" unique_id=1310425654]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_nwey2")
 
-[node name="PizzaView" type="Control" parent="Stack/PizzaCard" unique_id=410325980]
+[node name="PizzaView" type="Control" parent="Column/Margin/Stack/PizzaCard" unique_id=410325980]
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CutsLabel" type="Label" parent="Stack" unique_id=136182236]
+[node name="CutsLabel" type="Label" parent="Column/Margin/Stack" unique_id=136182236]
 layout_mode = 2
 text = "Corta en … partes iguales"
 
-[node name="CutsBox" type="HBoxContainer" parent="Stack" unique_id=2063512645]
+[node name="CutsBox" type="HBoxContainer" parent="Column/Margin/Stack" unique_id=2063512645]
 layout_mode = 2
 alignment = 1
 
-[node name="CustomersBox" type="HFlowContainer" parent="Stack" unique_id=1751626233]
+[node name="CustomersBox" type="HFlowContainer" parent="Column/Margin/Stack" unique_id=1751626233]
 layout_mode = 2
 theme_override_constants/h_separation = 6
-theme_override_constants/v_separation = 6
+theme_override_constants/v_separation = 4
 alignment = 1
 
-[node name="FeedbackCard" type="PanelContainer" parent="Stack" unique_id=778303151]
+[node name="FeedbackCard" type="PanelContainer" parent="Column/Margin/Stack" unique_id=778303151]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0pyms")
 
-[node name="MarginContainer" type="MarginContainer" parent="Stack/FeedbackCard" unique_id=164111145]
+[node name="MarginContainer" type="MarginContainer" parent="Column/Margin/Stack/FeedbackCard" unique_id=164111145]
 layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="FeedbackLabel" type="Label" parent="Stack/FeedbackCard" unique_id=449926161]
+[node name="FeedbackLabel" type="Label" parent="Column/Margin/Stack/FeedbackCard/MarginContainer" unique_id=449926161]
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
+vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="ServeBtn" type="Button" parent="Stack" unique_id=2044667014]
+[node name="ServeBtn" type="Button" parent="Column/Margin/Stack" unique_id=2044667014]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_tlnre")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7ly0c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wc4n2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qndga")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ufjvj")
 
 [node name="FeedbackPanel" parent="." unique_id=1103083211 instance=ExtResource("1_v3rcf")]
 layout_mode = 1

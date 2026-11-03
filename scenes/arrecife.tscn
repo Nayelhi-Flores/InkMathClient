@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://bmahqkq8057gg"]
+
+[ext_resource type="PackedScene" uid="uid://cx3sdmhh3clhq" path="res://scenes/Prefabs/nav_bar.tscn" id="1_lknt3"]
+[ext_resource type="Theme" uid="uid://caxl6vshlofo7" path="res://assets/themes/Label.tres" id="1_uoc8x"]
+[ext_resource type="Script" uid="uid://cm2o4ro0oljuv" path="res://scripts/arrecife.gd" id="1_ws8ao"]
+[ext_resource type="FontFile" uid="uid://dvpepkv6a4ln5" path="res://assets/fonts/Poppins-Regular.ttf" id="2_yivy3"]
+
+[node name="Arrecife" type="Control" unique_id=2109117072]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uoc8x")
+script = ExtResource("1_ws8ao")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=763323982]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Column" type="Control" parent="." unique_id=274477349]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Column" unique_id=1833899851]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Stack" type="VBoxContainer" parent="Column/MarginContainer" unique_id=555838920]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TopBar" type="HBoxContainer" parent="Column/MarginContainer/Stack" unique_id=476986976]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Column/MarginContainer/Stack/TopBar" unique_id=1144598857]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yivy3")
+text = "Arrecife de Ayuda"
+
+[node name="AulaSelector" type="OptionButton" parent="Column/MarginContainer/Stack/TopBar" unique_id=393896154]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ThreadHeader" type="HBoxContainer" parent="Column/MarginContainer/Stack" unique_id=19357914]
+layout_mode = 2
+
+[node name="BtnBackThread" type="Button" parent="Column/MarginContainer/Stack/ThreadHeader" unique_id=2104816258]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "< Preguntas"
+
+[node name="ThreadTitle" type="Label" parent="Column/MarginContainer/Stack/ThreadHeader" unique_id=1794086152]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yivy3")
+
+[node name="Scroll" type="ScrollContainer" parent="Column/MarginContainer/Stack" unique_id=55754542]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Messages" type="VBoxContainer" parent="Column/MarginContainer/Stack/Scroll" unique_id=299370705]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Composer" type="PanelContainer" parent="Column/MarginContainer/Stack" unique_id=797482681]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Column/MarginContainer/Stack/Composer" unique_id=569184328]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Column/MarginContainer/Stack/Composer/MarginContainer" unique_id=1055302162]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ModeLabel" type="Label" parent="Column/MarginContainer/Stack/Composer/MarginContainer/VBoxContainer" unique_id=917194138]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yivy3")
+
+[node name="TextRow" type="HBoxContainer" parent="Column/MarginContainer/Stack/Composer/MarginContainer/VBoxContainer" unique_id=262979684]
+layout_mode = 2
+
+[node name="MessageInput" type="LineEdit" parent="Column/MarginContainer/Stack/Composer/MarginContainer/VBoxContainer/TextRow" unique_id=691132784]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_yivy3")
+
+[node name="SendBtn" type="Button" parent="Column/MarginContainer/Stack/Composer/MarginContainer/VBoxContainer/TextRow" unique_id=788518280]
+custom_minimum_size = Vector2(90, 44)
+layout_mode = 2
+text = "Enviar"
+
+[node name="QuickBox" type="HFlowContainer" parent="Column/MarginContainer/Stack/Composer/MarginContainer" unique_id=954696386]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+
+[node name="NavBar" parent="Column/MarginContainer/Stack" unique_id=1665061468 instance=ExtResource("1_lknt3")]
+layout_mode = 2

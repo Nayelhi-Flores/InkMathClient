@@ -1,5 +1,9 @@
 extends Control
 
+var _ticket := ""
+var _rounds: Array = []
+var _answers: Array = []
+
 @onready var pause_btn: Button = _fn("PauseBtn")
 var _paused := false
 var _pause: PauseOverlay
@@ -7,7 +11,7 @@ var _pause: PauseOverlay
 const TOTAL_CLIENTES := 5
 @export var CLIENT_TIME_LIMIT := 20.0
 
-@export var menu_scene: String = "res://scenes/mapa_niveles.tscn"
+@export var menu_scene: String = "res://scenes/menu_inicio.tscn"
 @export var next_scene: String = ""
 @export var coins_per_correct := 10
 @export var banner_good: Texture2D
@@ -130,7 +134,7 @@ func _ready() -> void:
 	
 	await get_tree().process_frame   # deja que los contenedores calculen tamaños
 	_layout()
-	_load_customer()
+	await _iniciar_sesion()
 
 
 func _process(delta: float) -> void:
@@ -257,8 +261,8 @@ func _load_customer() -> void:
 	_locked = false
 	_time_remaining = CLIENT_TIME_LIMIT
 
-	order = _make_order(current)
-	paid = _total(order) + randi_range(1, 8)
+	order = _order_from_server(current)
+	paid = int(_rounds[current]["pago"])
 	solved = false
 
 	customer.texture = _next_sheet(current == TOTAL_CLIENTES - 1)
@@ -322,6 +326,9 @@ func _customer_leave() -> Tween:
 func _on_check_pressed() -> void:
 	if _locked or _moving or _paused:
 		return
+	if _ticket.is_empty():
+		_iniciar_sesion()
+		return
 	if solved:
 		_next_step()
 	else:
@@ -336,6 +343,7 @@ func _validate() -> void:
 	if int(txt) == paid - _total(order):
 		_is_timer_running = false
 		correct += 1
+		_answers.append(int(txt))
 		solved = true
 		change_input.editable = false
 		check_btn.text = "Siguiente"
@@ -351,6 +359,7 @@ func _validate() -> void:
 
 
 func _on_time_out() -> void:
+	_answers.append(null)
 	_locked = true
 	change_input.editable = false
 	_set_feedback("¡Se agotó el tiempo!", -1)
@@ -392,14 +401,37 @@ func _shake(node: Control) -> void:
 func _open_final() -> void:
 	_is_timer_running = false
 	anim_timer.stop()
-	var pct := roundi(float(correct) / TOTAL_CLIENTES * 100.0)
-	AudioManager.play_result(pct >= 50)
-	modal_title.text = "¡Nivel completado!" if pct >= 50 else "¡Sigue intentando!"
-	modal_accuracy.text = "Aciertos: %d/%d (%d%%)" % [correct, TOTAL_CLIENTES, pct]
-	modal_coins.text = "Modo práctica"   # la tienda aún no acredita monedas en el servidor
-	var tex := banner_good if pct >= 50 else banner_bad
+	pause_btn.hide()
+	var res := await ApiService.finalizar_juego_async("tienda", _ticket, _answers)
+	if not is_inside_tree():
+		return
+
+	var ok := false
+	var aciertos := correct
+	var monedas := 0
+	if res[0] == 200:
+		var r = JSON.parse_string(res[1])
+		if r is Dictionary:
+			ok = true
+			aciertos = int(r.get("aciertos", 0))
+			monedas = int(r.get("monedasGanadas", 0))
+			GameManager.set_monedas(int(r.get("nuevoSaldoMonedas", GameManager.monedas)))
+
+	var pct := roundi(float(aciertos) / TOTAL_CLIENTES * 100.0)
+	var positive := ok and pct >= 50
+	if ok:
+		modal_title.text = "¡Nivel completado!" if positive else "¡Sigue intentando!"
+		modal_accuracy.text = "Aciertos: %d/%d (%d%%)" % [aciertos, TOTAL_CLIENTES, pct]
+		modal_coins.text = "Monedas: +%d" % monedas
+	else:
+		modal_title.text = "No se pudo guardar tu resultado"
+		modal_accuracy.text = "Aciertos: %d/%d" % [correct, TOTAL_CLIENTES]
+		modal_coins.text = "Revisa tu conexión"
+	var tex := banner_good if positive else banner_bad
 	if tex != null:
 		modal_banner.texture = tex
+	if ok:
+		AudioManager.play_result(positive)
 	final_modal.show()
 
 func _is_mobile() -> bool:
@@ -445,3 +477,28 @@ func _abrir_pausa() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		_abrir_pausa()
+
+func _iniciar_sesion() -> void:
+	var res := await ApiService.iniciar_juego_async("tienda")
+	if not is_inside_tree():
+		return
+	var data = JSON.parse_string(res[1]) if res[0] == 200 else null
+	if data is Dictionary and data.get("rondas") is Array and data.get("precios") is Array \
+			and not str(data.get("intentoToken", "")).is_empty() and data["rondas"].size() >= TOTAL_CLIENTES:
+		_ticket = str(data["intentoToken"])
+		_rounds = data["rondas"]
+		var precios: Array = data["precios"]
+		for i in mini(precios.size(), catalog.size()):
+			catalog[i].price = int(precios[i])
+		_answers.clear()
+		_load_customer()
+	else:
+		_set_feedback("No se pudo iniciar el juego. Revisa tu conexión.", -1)
+		check_btn.text = "Reintentar"
+
+
+func _order_from_server(i: int) -> Dictionary:
+	var lines: Array = []
+	for l in _rounds[i]["lineas"]:
+		lines.append({"id": int(l["id"]), "qty": int(l["cantidad"])})
+	return {"lines": lines}

@@ -3,7 +3,7 @@ extends Control
 ## Verificación: el cliente recibió lo pedido si  porciones_recibidas / total_porciones == num / den
 ## (se comparan por producto cruzado, así 2/4 y 1/2 cuentan como iguales).
 
-@export var menu_scene: String = "res://scenes/mapa_niveles.tscn"
+@export var menu_scene: String = "res://scenes/menu_inicio.tscn"
 @export_range(0.4, 1.0) var column_ratio := 0.7
 @export var banner_good: Texture2D
 @export var banner_bad: Texture2D
@@ -30,6 +30,9 @@ var _level_done := false
 var _stars_total := 0
 var _first_try := 0
 var _cards: Array[Button] = []
+var _ticket := ""
+var _all_attempts: Array = []   # por nivel: [{partes, duenos}, ...]
+var _level_log: Array = []
 
 var _paused := false
 var _pause: PauseOverlay
@@ -84,7 +87,7 @@ func _ready() -> void:
 	_apply_column()
 
 	AudioManager.play_music(-14.0)
-	_start_level()
+	_iniciar_sesion()
 
 
 func _apply_column() -> void:
@@ -99,8 +102,30 @@ func _apply_column() -> void:
 	column.offset_right = 0
 
 
+# ---------- SESIÓN ----------
+func _iniciar_sesion() -> void:
+	serve_btn.disabled = true
+	_set_feedback("Preparando la pizzería...")
+	var res := await ApiService.iniciar_juego_async("fracciones")
+	if not is_inside_tree():
+		return
+	var data = JSON.parse_string(res[1]) if res[0] == 200 else null
+	if data is Dictionary and not str(data.get("intentoToken", "")).is_empty():
+		_ticket = str(data["intentoToken"])
+		_all_attempts.clear()
+		_level = 0
+		_stars_total = 0
+		_first_try = 0
+		_start_level()
+	else:
+		_set_feedback("No se pudo iniciar el juego. Revisa tu conexión.", -1)
+		serve_btn.text = "Reintentar"
+		serve_btn.disabled = false
+
+
 # ---------- NIVELES ----------
 func _start_level() -> void:
+	_level_log = []
 	_customers = LEVELS[_level]["clientes"]
 	_n = 0
 	_owner = []
@@ -215,11 +240,15 @@ func _on_pizza_input(ev: InputEvent) -> void:
 func _on_serve_pressed() -> void:
 	if _paused:
 		return
+	if _ticket.is_empty():
+		_iniciar_sesion()
+		return
 	if _level_done:
 		_next_level()
 		return
 	if _n == 0:
 		return
+	_level_log.append({"partes": _n, "duenos": _owner.duplicate()})
 
 	var wrong: Array[String] = []
 	var asignadas := 0
@@ -236,6 +265,7 @@ func _on_serve_pressed() -> void:
 
 	if wrong.is_empty():
 		_level_done = true
+		_all_attempts.append(_level_log)
 		var stars := 3 - mini(_errors, 2)
 		_stars_total += stars
 		if _errors == 0:
@@ -288,16 +318,41 @@ func _next_level() -> void:
 
 
 func _finish() -> void:
-	var max_stars := LEVELS.size() * 3
-	var positive := _stars_total >= int(ceil(max_stars * STARS_PASS))
 	pause_btn.hide()
-	modal_title.text = "¡Buen reparto!" if positive else "¡Sigue practicando!"
-	modal_accuracy.text = "A la primera: %d/%d" % [_first_try, LEVELS.size()]
-	modal_coins.text = "Estrellas: %d/%d · Modo práctica" % [_stars_total, max_stars]
+	serve_btn.disabled = true
+	var res := await ApiService.finalizar_juego_async("fracciones", _ticket, _all_attempts)
+	if not is_inside_tree():
+		return
+
+	var ok := false
+	var aciertos := 0
+	var total := LEVELS.size()
+	var estrellas := _stars_total
+	var monedas := 0
+	if res[0] == 200:
+		var r = JSON.parse_string(res[1])
+		if r is Dictionary:
+			ok = true
+			aciertos = int(r.get("aciertos", 0))
+			total = int(r.get("total", total))
+			estrellas = int(r.get("estrellas", 0))
+			monedas = int(r.get("monedasGanadas", 0))
+			GameManager.set_monedas(int(r.get("nuevoSaldoMonedas", GameManager.monedas)))
+
+	var positive := ok and estrellas >= int(ceil(total * 3 * STARS_PASS))
+	if ok:
+		modal_title.text = "¡Buen reparto!" if positive else "¡Sigue practicando!"
+		modal_accuracy.text = "Pizzas: %d/%d · Estrellas: %d/%d" % [aciertos, total, estrellas, total * 3]
+		modal_coins.text = "Monedas: +%d" % monedas
+	else:
+		modal_title.text = "No se pudo guardar tu resultado"
+		modal_accuracy.text = "Revisa tu conexión"
+		modal_coins.text = "Inténtalo de nuevo"
 	var tex := banner_good if positive else banner_bad
 	if tex != null and modal_banner != null:
 		modal_banner.texture = tex
-	AudioManager.play_result(positive)
+	if ok:
+		AudioManager.play_result(positive)
 	final_modal.show()
 
 

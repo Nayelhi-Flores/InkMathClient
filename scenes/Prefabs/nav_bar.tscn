@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cx3sdmhh3clhq"]
+
+[ext_resource type="Script" uid="uid://cxnxsmg5ljcyd" path="res://scripts/nav_bar.gd" id="1_i7lic"]
+
+[node name="NavBar" type="PanelContainer" unique_id=1665061468]
+offset_bottom = 44.0
+script = ExtResource("1_i7lic")

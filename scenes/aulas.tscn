@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://6ux8qfgbgb3g"]
+
+[ext_resource type="Script" uid="uid://bacbjwnl0he2y" path="res://scripts/aulas_estudiante.gd" id="1_nbh4x"]
+[ext_resource type="FontFile" uid="uid://dvpepkv6a4ln5" path="res://assets/fonts/Poppins-Regular.ttf" id="2_ux3xc"]
+[ext_resource type="PackedScene" uid="uid://cx3sdmhh3clhq" path="res://scenes/Prefabs/nav_bar.tscn" id="3_78bn8"]
+
+[node name="Aulas" type="Control" unique_id=1714053099]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nbh4x")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1755639643]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0.26805058, 0.26807377, 1)
+
+[node name="Column" type="Control" parent="." unique_id=213771368]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="Column" unique_id=1352756627]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Stack" type="VBoxContainer" parent="Column/Margin" unique_id=1831117283]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TopBar" type="HBoxContainer" parent="Column/Margin/Stack" unique_id=144026958]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Column/Margin/Stack/TopBar" unique_id=2054463572]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_ux3xc")
+text = "Mis aulas"
+
+[node name="BtnJoin" type="Button" parent="Column/Margin/Stack/TopBar" unique_id=1876473097]
+custom_minimum_size = Vector2(100, 44)
+layout_mode = 2
+text = "Unirme"
+
+[node name="DetailHeader" type="HBoxContainer" parent="Column/Margin/Stack" unique_id=1862270661]
+layout_mode = 2
+
+[node name="BtnBack" type="Button" parent="Column/Margin/Stack/DetailHeader" unique_id=1172640455]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "< Aulas"
+
+[node name="AulaTitle" type="Label" parent="Column/Margin/Stack/DetailHeader" unique_id=1701813669]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ux3xc")
+
+[node name="Tabs" type="HBoxContainer" parent="Column/Margin/Stack" unique_id=1369530552]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Scroll" type="ScrollContainer" parent="Column/Margin/Stack" unique_id=1175398473]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Content" type="VBoxContainer" parent="Column/Margin/Stack/Scroll" unique_id=1935427446]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Actions" type="HBoxContainer" parent="Column/Margin/Stack" unique_id=2084559491]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NavBar" parent="Column/Margin/Stack" unique_id=1665061468 instance=ExtResource("3_78bn8")]
+layout_mode = 2

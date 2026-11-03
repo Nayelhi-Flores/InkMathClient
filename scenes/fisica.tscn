@@ -1,7 +1,265 @@
-[gd_scene format=3 uid="uid://b5hiv36oa4a25"]
+[gd_scene format=4 uid="uid://b5hiv36oa4a25"]
 
 [ext_resource type="PackedScene" uid="uid://dt7kgc13lwlub" path="res://scenes/Prefabs/feedback_modal.tscn" id="1_2rl4w"]
 [ext_resource type="Script" uid="uid://c7blv1she1bl6" path="res://scripts/fisica.gd" id="1_sytjv"]
+[ext_resource type="FontFile" uid="uid://rergs07db2u0" path="res://assets/fonts/Poppins-Medium.ttf" id="2_pox3u"]
+[ext_resource type="Texture2D" uid="uid://vaspdhjlsocp" path="res://assets/items/cofre_0001.png" id="2_w4dy7"]
+[ext_resource type="Texture2D" uid="uid://1370lchrai3v" path="res://assets/items/cofre_0002.png" id="3_lvk6m"]
+[ext_resource type="FontFile" uid="uid://b7ocw3n7eslwu" path="res://assets/fonts/Poppins-Bold.ttf" id="3_shsaw"]
+[ext_resource type="Texture2D" uid="uid://yavd0rprjl2b" path="res://assets/FONDO MARINO/FONDO MAR.png" id="4_1wgmm"]
+[ext_resource type="Texture2D" uid="uid://508ewxyyudvg" path="res://assets/FONDO MARINO/TILSET NIVEL 5.png" id="4_lvk6m"]
+[ext_resource type="Script" uid="uid://0v5fbq5hao3v" path="res://scripts/tile_fill.gd" id="6_hm6rg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wgmm"]
+texture = ExtResource("4_lvk6m")
+margins = Vector2i(3, 3)
+separation = Vector2i(4, 4)
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+6:1/0 = 0
+6:2/0 = 0
+5:2/0 = 0
+4:2/0 = 0
+3:2/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+7:0/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hm6rg"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_1wgmm")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4dy7"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.972549, 0.44313726, 0.44313726, 1)
+border_width_bottom = 4
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvk6m"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1wgmm"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.972549, 0.44313726, 0.44313726, 1)
+border_width_bottom = 4
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hm6rg"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nroqn"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.972549, 0.44313726, 0.44313726, 1)
+border_width_bottom = 4
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwllf"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75wfh"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pox3u"]
+bg_color = Color(0, 0.11372549, 0.21568628, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.11372549, 0.21568628, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.15)
+shadow_size = 10
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vyhcs"]
+bg_color = Color(0.078431375, 0.08235294, 0.16470589, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1swr"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.03529412, 0.48235294, 0.7137255, 1)
+border_width_bottom = 4
+border_color = Color(0.019607844, 0.3137255, 0.46666667, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shsaw"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.03529412, 0.48235294, 0.7137255, 1)
+border_color = Color(0.019607844, 0.3137255, 0.46666667, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4wvt"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.03529412, 0.48235294, 0.7137255, 1)
+border_width_bottom = 4
+border_color = Color(0.019607844, 0.3137255, 0.46666667, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82ls6"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.03529412, 0.48235294, 0.7137255, 1)
+border_color = Color(0.019607844, 0.3137255, 0.46666667, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dw8l8"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.03529412, 0.48235294, 0.7137255, 1)
+border_color = Color(0.019607844, 0.3137255, 0.46666667, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yql5"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.23529412, 0.62352943, 0.3764706, 1)
+border_width_bottom = 4
+border_color = Color(0.15300155, 0.42509001, 0.2513753, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bj3d7"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.23529412, 0.62352943, 0.3764706, 1)
+border_color = Color(0.15300155, 0.42509001, 0.2513753, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3l37"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.23529412, 0.62352943, 0.3764706, 1)
+border_width_bottom = 4
+border_color = Color(0.15300155, 0.42509001, 0.2513753, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfbma"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.23529412, 0.62352943, 0.3764706, 1)
+border_width_bottom = 4
+border_color = Color(0.15300155, 0.42509001, 0.2513753, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts1lk"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.23529412, 0.62352943, 0.3764706, 1)
+border_color = Color(0.15300155, 0.42509001, 0.2513753, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Fisica" type="Control" unique_id=778053938]
 layout_mode = 3
@@ -11,6 +269,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sytjv")
+chest_closed = ExtResource("2_w4dy7")
+chest_open = ExtResource("3_lvk6m")
 
 [node name="Fondo" type="TextureRect" parent="." unique_id=1887262323]
 layout_mode = 1
@@ -20,8 +280,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = ExtResource("4_1wgmm")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=591645694]
+position = Vector2(0, 12)
+tile_map_data = PackedByteArray("AAAAAA0AAAABAAAAAAABAA0AAAABAAAAAAACAA0AAAABAAAAAAADAA0AAAABAAAAAAAEAA0AAAABAAAAAAAFAA0AAAABAAAAAAAGAA0AAAABAAAAAAAHAA0AAAABAAAAAAAIAA0AAAABAAAAAAAJAA0AAAABAAAAAAAKAA0AAAABAAAAAAALAA0AAAABAAAAAAAMAA0AAAABAAAAAAANAA0AAAABAAAAAAAOAA0AAAABAAAAAAD//w0AAAABAAAAAAD+/w0AAAABAAAAAAD9/w0AAAABAAAAAAD8/w0AAAABAAAAAAD7/w0AAAABAAAAAAD//xQAAAABAAEAAAAAABQAAAABAAEAAAABABQAAAABAAEAAAACABQAAAABAAEAAAADABQAAAABAAEAAAAEABQAAAABAAEAAAAFABQAAAABAAEAAAAGABQAAAABAAEAAAD//wwAAAABAAAAAAAAAAwAAAAFAAAAAAD6/w0AAAABAAAAAAD+/wwAAAABAAAAAAD9/wwAAAABAAAAAAD8/wwAAAABAAAAAAD7/wwAAAABAAAAAAD6/wwAAAABAAAAAAD5/wwAAAABAAAAAAD4/wwAAAABAAAAAAD3/wwAAAABAAAAAAD2/wwAAAABAAAAAAD1/wwAAAABAAAAAAD5/w8AAAABAAEAAAD5/w4AAAABAAEAAAD0/xQAAAABAAEAAAD1/xQAAAABAAEAAAD2/xQAAAABAAEAAAD3/xQAAAABAAEAAAD4/xQAAAABAAEAAAD5/xQAAAABAAEAAAD6/xQAAAABAAEAAAD7/xQAAAABAAEAAAD8/xQAAAABAAEAAAD9/xQAAAABAAEAAAD+/xQAAAABAAEAAAAHABQAAAABAAEAAAAIABQAAAABAAEAAAAJABQAAAABAAEAAAAKABQAAAABAAEAAAALABQAAAABAAEAAAAMABQAAAABAAEAAAANABQAAAABAAEAAAAOABQAAAABAAEAAAAPABQAAAABAAEAAAAQABQAAAABAAEAAAARABQAAAABAAEAAAASABQAAAABAAEAAAATABQAAAABAAEAAAAUABQAAAABAAEAAAAVABQAAAABAAEAAAAWABQAAAABAAEAAAAXABQAAAABAAEAAAAYABQAAAABAAEAAAAZABQAAAABAAEAAAAZABMAAAABAAEAAAAZABIAAAABAAEAAAAZABEAAAABAAEAAAAZABAAAAABAAEAAAAZAA8AAAABAAEAAAAZAA4AAAABAAEAAAAZAA0AAAACAAAAAAAPAA0AAAABAAAAAAAQAA0AAAABAAAAAAARAA0AAAABAAAAAAASAA0AAAABAAAAAAATAA0AAAABAAAAAAAUAA0AAAABAAAAAAAVAA0AAAABAAAAAAAWAA0AAAABAAAAAAAXAA0AAAABAAAAAAAYAA0AAAABAAAAAAD5/xAAAAABAAEAAAD5/w0AAAAAAAAAAAD0/xMAAAABAAEAAAD0/xIAAAABAAEAAAD0/xEAAAABAAEAAAD0/xAAAAABAAEAAAD0/w8AAAABAAEAAAD0/w4AAAABAAEAAAD0/w0AAAAAAAEAAAD1/w0AAAABAAEAAAD1/w4AAAABAAEAAAD1/w8AAAABAAEAAAD1/xAAAAABAAEAAAD1/xEAAAABAAEAAAD1/xIAAAABAAEAAAD1/xMAAAABAAEAAAD2/xMAAAABAAEAAAD2/xIAAAABAAEAAAD2/xEAAAABAAEAAAD2/xAAAAABAAEAAAD2/w8AAAABAAEAAAD2/w4AAAABAAEAAAD2/w0AAAABAAEAAAD3/w0AAAABAAEAAAD3/w4AAAABAAEAAAD3/w8AAAABAAEAAAD3/xAAAAABAAEAAAD3/xEAAAABAAEAAAD3/xIAAAABAAEAAAD3/xMAAAABAAEAAAD4/xMAAAABAAEAAAD4/xIAAAABAAEAAAD4/xEAAAABAAEAAAD4/xAAAAABAAEAAAD4/w8AAAABAAEAAAD4/w4AAAABAAEAAAD4/w0AAAABAAEAAAD5/xEAAAABAAEAAAD5/xIAAAABAAEAAAD5/xMAAAABAAEAAAD6/xMAAAABAAEAAAD6/xIAAAABAAEAAAD6/xEAAAABAAEAAAD6/xAAAAABAAEAAAD6/w8AAAABAAEAAAD6/w4AAAABAAEAAAD7/w4AAAABAAEAAAD7/w8AAAABAAEAAAD7/xAAAAABAAEAAAD7/xEAAAABAAEAAAD7/xIAAAABAAEAAAD7/xMAAAABAAEAAAD8/xMAAAABAAEAAAD8/xIAAAABAAEAAAD8/xEAAAABAAEAAAD8/xAAAAABAAEAAAD8/w8AAAABAAEAAAD8/w4AAAABAAEAAAD9/w4AAAABAAEAAAD9/w8AAAABAAEAAAD9/xAAAAABAAEAAAD9/xEAAAABAAEAAAD9/xIAAAABAAEAAAD9/xMAAAABAAEAAAD+/xMAAAABAAEAAAD+/xIAAAABAAEAAAD+/xEAAAABAAEAAAD+/xAAAAABAAEAAAD+/w8AAAABAAEAAAD+/w4AAAABAAEAAAD//w4AAAABAAEAAAD//w8AAAABAAEAAAD//xAAAAABAAEAAAD//xEAAAABAAEAAAD//xIAAAABAAEAAAD//xMAAAABAAEAAAAAABMAAAABAAEAAAAAABIAAAABAAEAAAAAABEAAAABAAEAAAAAABAAAAABAAEAAAAAAA8AAAABAAEAAAAAAA4AAAABAAEAAAABAA4AAAABAAEAAAABAA8AAAABAAEAAAABABAAAAABAAEAAAABABEAAAABAAEAAAABABIAAAABAAEAAAABABMAAAABAAEAAAACABMAAAABAAEAAAACABIAAAABAAEAAAACABEAAAABAAEAAAACABAAAAABAAEAAAACAA8AAAABAAEAAAACAA4AAAABAAEAAAADAA4AAAABAAEAAAADAA8AAAABAAEAAAADABAAAAABAAEAAAADABEAAAABAAEAAAADABIAAAABAAEAAAADABMAAAABAAEAAAAEABMAAAABAAEAAAAEABIAAAABAAEAAAAEABEAAAABAAEAAAAEABAAAAABAAEAAAAEAA8AAAABAAEAAAAEAA4AAAABAAEAAAAFAA4AAAABAAEAAAAFAA8AAAABAAEAAAAFABAAAAABAAEAAAAFABEAAAABAAEAAAAFABIAAAABAAEAAAAFABMAAAABAAEAAAAGABMAAAABAAEAAAAGABIAAAABAAEAAAAGABEAAAABAAEAAAAGABAAAAABAAEAAAAGAA8AAAABAAEAAAAGAA4AAAABAAEAAAAHAA4AAAABAAEAAAAHAA8AAAABAAEAAAAHABAAAAABAAEAAAAHABEAAAABAAEAAAAHABIAAAABAAEAAAAHABMAAAABAAEAAAAIABMAAAABAAEAAAAIABIAAAABAAEAAAAIABEAAAABAAEAAAAIAA8AAAABAAEAAAAIAA4AAAABAAEAAAAJAA4AAAABAAEAAAAJAA8AAAABAAEAAAAJABAAAAABAAEAAAAJABEAAAABAAEAAAAJABIAAAABAAEAAAAJABMAAAABAAEAAAAKABMAAAABAAEAAAAKABIAAAABAAEAAAAKABEAAAABAAEAAAAKABAAAAABAAEAAAAKAA8AAAABAAEAAAAKAA4AAAABAAEAAAALAA4AAAABAAEAAAALAA8AAAABAAEAAAALABAAAAABAAEAAAALABEAAAABAAEAAAALABIAAAABAAEAAAALABMAAAABAAEAAAAMABMAAAABAAEAAAAMABIAAAABAAEAAAAMABEAAAABAAEAAAAMABAAAAABAAEAAAAMAA8AAAABAAEAAAAMAA4AAAABAAEAAAANAA4AAAABAAEAAAANAA8AAAABAAEAAAANABAAAAABAAEAAAANABEAAAABAAEAAAANABIAAAABAAEAAAANABMAAAABAAEAAAAOABMAAAABAAEAAAAOABIAAAABAAEAAAAOABEAAAABAAEAAAAOABAAAAABAAEAAAAOAA8AAAABAAEAAAAOAA4AAAABAAEAAAAPAA4AAAABAAEAAAAPAA8AAAABAAEAAAAPABAAAAABAAEAAAAPABEAAAABAAEAAAAPABIAAAABAAEAAAAPABMAAAABAAEAAAAQABMAAAABAAEAAAAQABIAAAABAAEAAAAQABEAAAABAAEAAAAQABAAAAABAAEAAAAQAA8AAAABAAEAAAAQAA4AAAABAAEAAAARAA4AAAABAAEAAAARAA8AAAABAAEAAAARABAAAAABAAEAAAARABEAAAABAAEAAAARABIAAAABAAEAAAARABMAAAABAAEAAAASABMAAAABAAEAAAASABIAAAABAAEAAAASABEAAAABAAEAAAASABAAAAABAAEAAAASAA8AAAABAAEAAAASAA4AAAABAAEAAAATAA4AAAABAAEAAAATAA8AAAABAAEAAAATABAAAAABAAEAAAATABEAAAABAAEAAAATABIAAAABAAEAAAATABMAAAABAAEAAAAUABMAAAABAAEAAAAUABIAAAABAAEAAAAUABEAAAABAAEAAAAUABAAAAABAAEAAAAUAA8AAAABAAEAAAAUAA4AAAABAAEAAAAVAA4AAAABAAEAAAAVAA8AAAABAAEAAAAVABAAAAABAAEAAAAVABEAAAABAAEAAAAVABIAAAABAAEAAAAVABMAAAABAAEAAAAWABMAAAABAAEAAAAWABIAAAABAAEAAAAWABEAAAABAAEAAAAWABAAAAABAAEAAAAWAA8AAAABAAEAAAAWAA4AAAABAAEAAAAXAA4AAAABAAEAAAAXAA8AAAABAAEAAAAXABAAAAABAAEAAAAXABEAAAABAAEAAAAXABIAAAABAAEAAAAXABMAAAABAAEAAAAYABMAAAABAAEAAAAYABIAAAABAAEAAAAYABEAAAABAAEAAAAYABAAAAABAAEAAAAYAA8AAAABAAEAAAAYAA4AAAABAAEAAAD0/wwAAAAAAAAAAAAIABAAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_hm6rg")
+script = ExtResource("6_hm6rg")
+pattern_x = -12
+pattern_width = 20
+arena_path = NodePath("../Column/Margin/Stack/Arena")
+ground_row = 13
 
 [node name="Column" type="Control" parent="." unique_id=1674669319]
 layout_mode = 1
@@ -32,128 +303,149 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Margin" type="MarginContainer" parent="." unique_id=466056325]
+[node name="Margin" type="MarginContainer" parent="Column" unique_id=466056325]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="Stack" type="VBoxContainer" parent="." unique_id=1681098426]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Stack" type="VBoxContainer" parent="Column/Margin" unique_id=1681098426]
+layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="TopBar" type="HBoxContainer" parent="Stack" unique_id=1897885671]
+[node name="TopBar" type="HBoxContainer" parent="Column/Margin/Stack" unique_id=1897885671]
 layout_mode = 2
 
-[node name="BackBtn" type="Button" parent="Stack/TopBar" unique_id=1681515112]
-custom_minimum_size = Vector2(44, 44)
+[node name="BackBtn" type="Button" parent="Column/Margin/Stack/TopBar" unique_id=793424177]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_pox3u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w4dy7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lvk6m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1wgmm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hm6rg")
+text = "Salir"
 
-[node name="RoundLabel" type="Label" parent="Stack/TopBar" unique_id=1982917822]
+[node name="RoundLabel" type="Label" parent="Column/Margin/Stack/TopBar" unique_id=1982917822]
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 1
 
-[node name="AttemptsLabel" type="Label" parent="Stack/TopBar" unique_id=367114925]
+[node name="AttemptsLabel" type="Label" parent="Column/Margin/Stack/TopBar" unique_id=367114925]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="PauseBtn" type="Button" parent="Stack/TopBar" unique_id=94503202]
-custom_minimum_size = Vector2(44, 44)
+[node name="PauseBtn" type="Button" parent="Column/Margin/Stack/TopBar" unique_id=1277094896]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_shsaw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nroqn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bwllf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nroqn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_75wfh")
+text = "I I"
 
-[node name="InfoCard" type="PanelContainer" parent="Stack" unique_id=1119588252]
+[node name="InfoCard" type="PanelContainer" parent="Column/Margin/Stack" unique_id=1119588252]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pox3u")
 
-[node name="MarginContainer" type="MarginContainer" parent="Stack/InfoCard" unique_id=412823482]
+[node name="MarginContainer" type="MarginContainer" parent="Column/Margin/Stack/InfoCard" unique_id=412823482]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="InfoLabel" type="Label" parent="Stack/InfoCard/MarginContainer" unique_id=970099354]
+[node name="InfoLabel" type="Label" parent="Column/Margin/Stack/InfoCard/MarginContainer" unique_id=970099354]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Arena" type="Control" parent="Stack" unique_id=1428148826]
+[node name="Arena" type="Control" parent="Column/Margin/Stack" unique_id=1428148826]
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="ControlsCard" type="PanelContainer" parent="Stack" unique_id=1763135819]
+[node name="ControlsCard" type="PanelContainer" parent="Column/Margin/Stack" unique_id=1763135819]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vyhcs")
 
-[node name="MarginContainer" type="MarginContainer" parent="Stack/ControlsCard" unique_id=1172675048]
+[node name="MarginContainer" type="MarginContainer" parent="Column/Margin/Stack/ControlsCard" unique_id=1172675048]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Stack/ControlsCard/MarginContainer" unique_id=80855073]
+[node name="VBoxContainer" type="VBoxContainer" parent="Column/Margin/Stack/ControlsCard/MarginContainer" unique_id=80855073]
 layout_mode = 2
 
-[node name="AngleRow" type="HBoxContainer" parent="Stack/ControlsCard/MarginContainer/VBoxContainer" unique_id=1286325943]
+[node name="AngleRow" type="HBoxContainer" parent="Column/Margin/Stack/ControlsCard/MarginContainer/VBoxContainer" unique_id=1286325943]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Stack/ControlsCard/MarginContainer/VBoxContainer/AngleRow" unique_id=1661095103]
+[node name="Label" type="Label" parent="Column/Margin/Stack/ControlsCard/MarginContainer/VBoxContainer/AngleRow" unique_id=1661095103]
 layout_mode = 2
 text = "Ángulo"
 
-[node name="AngleSlider" type="HSlider" parent="Stack/ControlsCard/MarginContainer/VBoxContainer/AngleRow" unique_id=964356242]
+[node name="AngleSlider" type="HSlider" parent="Column/Margin/Stack/ControlsCard/MarginContainer/VBoxContainer/AngleRow" unique_id=964356242]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AngleValue" type="Label" parent="Stack/ControlsCard/MarginContainer/VBoxContainer/AngleRow" unique_id=2015935436]
+[node name="AngleValue" type="Label" parent="Column/Margin/Stack/ControlsCard/MarginContainer/VBoxContainer/AngleRow" unique_id=2015935436]
 layout_mode = 2
 
-[node name="SpeedRow" type="HBoxContainer" parent="Stack/ControlsCard/MarginContainer/VBoxContainer" unique_id=169360482]
+[node name="SpeedRow" type="HBoxContainer" parent="Column/Margin/Stack/ControlsCard/MarginContainer/VBoxContainer" unique_id=169360482]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Stack/ControlsCard/MarginContainer/VBoxContainer/SpeedRow" unique_id=451327302]
+[node name="Label" type="Label" parent="Column/Margin/Stack/ControlsCard/MarginContainer/VBoxContainer/SpeedRow" unique_id=451327302]
 layout_mode = 2
 text = "Velocidad"
 
-[node name="SpeedSlider" type="HSlider" parent="Stack/ControlsCard/MarginContainer/VBoxContainer/SpeedRow" unique_id=1169245664]
+[node name="SpeedSlider" type="HSlider" parent="Column/Margin/Stack/ControlsCard/MarginContainer/VBoxContainer/SpeedRow" unique_id=1169245664]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SpeedValue" type="Label" parent="Stack/ControlsCard/MarginContainer/VBoxContainer/SpeedRow" unique_id=1383911248]
+[node name="SpeedValue" type="Label" parent="Column/Margin/Stack/ControlsCard/MarginContainer/VBoxContainer/SpeedRow" unique_id=1383911248]
 layout_mode = 2
 
-[node name="FeedbackLabel" type="Label" parent="Stack/ControlsCard/MarginContainer/VBoxContainer" unique_id=559394041]
+[node name="FeedbackLabel" type="Label" parent="Column/Margin/Stack/ControlsCard/MarginContainer/VBoxContainer" unique_id=559394041]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 autowrap_mode = 3
 
-[node name="ButtonsRow" type="HBoxContainer" parent="Stack/ControlsCard/MarginContainer/VBoxContainer" unique_id=1340961792]
+[node name="ButtonsRow" type="HBoxContainer" parent="Column/Margin/Stack/ControlsCard/MarginContainer/VBoxContainer" unique_id=1340961792]
 layout_mode = 2
 
-[node name="HelpBtn" type="Button" parent="Stack/ControlsCard/MarginContainer/VBoxContainer/ButtonsRow" unique_id=271427906]
+[node name="HelpBtn" type="Button" parent="Column/Margin/Stack/ControlsCard/MarginContainer/VBoxContainer/ButtonsRow" unique_id=271427906]
 custom_minimum_size = Vector2(90, 48)
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_t1swr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_shsaw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d4wvt")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_82ls6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dw8l8")
 
-[node name="LaunchBtn" type="Button" parent="Stack/ControlsCard/MarginContainer/VBoxContainer/ButtonsRow" unique_id=817942308]
+[node name="LaunchBtn" type="Button" parent="Column/Margin/Stack/ControlsCard/MarginContainer/VBoxContainer/ButtonsRow" unique_id=817942308]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_8yql5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bj3d7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w3l37")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qfbma")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ts1lk")
 
 [node name="FeedbackPanel" parent="." unique_id=1103083211 instance=ExtResource("1_2rl4w")]
 layout_mode = 1

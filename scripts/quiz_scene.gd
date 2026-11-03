@@ -5,6 +5,7 @@ extends Control
 @onready var _btn_pause: Button = find_child("BtnPause", true, false) as Button
 var _paused: bool = false
 var _pause: PauseOverlay
+var _visual: VisualRenderer
 
 @export var progress_bar_questions_path: NodePath
 @export var label_timer_path: NodePath
@@ -129,6 +130,7 @@ func _cargar_pregunta_actual() -> void:
 	var q: Dictionary = _preguntas[_current_question_index]
 	if _label_question_title:
 		_label_question_title.text = str(q.get("pregunta", q.get("textoPregunta", "")))
+	_mostrar_visual(q)
 	if _label_progress:
 		_label_progress.text = "Pregunta %d de %d" % [_current_question_index + 1, _preguntas.size()]
 
@@ -140,7 +142,19 @@ func _cargar_pregunta_actual() -> void:
 			btn.custom_minimum_size.y = maxf(btn.custom_minimum_size.y, 50.0)
 			btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			btn.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-			btn.text = str(opt.get("textoOpcion", ""))
+			var texto := str(opt.get("textoOpcion", ""))
+			btn.text = texto
+			var ic = opt.get("icono")
+			if ic != null and str(ic) != "":
+				var tex := ItemVisual.texture(str(ic))
+				if tex != null:
+					btn.icon = tex
+					btn.expand_icon = true
+					btn.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+					btn.add_theme_constant_override("icon_max_width", 56)
+					btn.custom_minimum_size.y = 76.0
+					btn.tooltip_text = texto
+					btn.text = ""
 			btn.pressed.connect(_validar_respuesta.bind(q, opt))
 			_options_container.add_child(btn)
 
@@ -237,7 +251,8 @@ func _mostrar_modal_feedback(aciertos: int, total: int, monedas: int, ok: bool) 
 
 
 func _volver_al_mapa() -> void:
-	get_tree().change_scene_to_file(MAP_SCENE)
+	var dest: String = GameManager.return_scene if GameManager.return_scene != "" else MAP_SCENE
+	get_tree().change_scene_to_file(dest)
 
 
 func _on_btn_home_pressed() -> void:
@@ -265,3 +280,20 @@ func _abrir_pausa() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		_abrir_pausa()
+
+func _mostrar_visual(q: Dictionary) -> void:
+	var raw = q.get("contenidoVisual")
+	var data = null
+	if raw is String and not str(raw).strip_edges().is_empty():
+		data = JSON.parse_string(raw)
+	if not (data is Dictionary):
+		if _visual:
+			_visual.hide()
+		return
+	if _visual == null:
+		_visual = VisualRenderer.new()
+		var host := _options_container.get_parent()
+		host.add_child(_visual)
+		host.move_child(_visual, _options_container.get_index())
+	_visual.show()
+	_visual.set_data(data)

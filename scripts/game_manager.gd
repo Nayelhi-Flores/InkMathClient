@@ -2,9 +2,13 @@ extends Node
 
 signal monedas_actualizadas(valor: int)
 
+var selected_section: String = ""
 var selected_test_id: int = 0
 var selected_test_title: String = ""
 var ordered_test_ids: Array[int] = []
+var return_scene: String = ""
+var selected_aula_id: int = 0
+var reopen_aula_id: int = 0
 
 var monedas: int = 0
 

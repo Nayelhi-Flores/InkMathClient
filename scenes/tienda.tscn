@@ -398,10 +398,10 @@ theme_override_constants/separation = 12
 [node name="TopBar" type="HBoxContainer" parent="Column/TopArea/Stack" unique_id=367585494]
 layout_mode = 2
 theme_override_constants/separation = 24
-alignment = 1
 
 [node name="BackBtn" type="Button" parent="Column/TopArea/Stack/TopBar" unique_id=1246482953]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("18_mcj26")
 theme_override_styles/normal = SubResource("StyleBoxFlat_gmw26")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bftsm")
@@ -411,18 +411,21 @@ text = "Salir"
 
 [node name="ScoreLabel" type="Label" parent="Column/TopArea/Stack/TopBar" unique_id=2095873855]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0.11372549, 0.21568628, 1)
 theme_override_font_sizes/font_size = 20
 
 [node name="LabelTimer" type="Label" parent="Column/TopArea/Stack/TopBar" unique_id=2008253850]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
 theme_override_fonts/font = ExtResource("28_33a00")
 theme_override_font_sizes/font_size = 20
 
 [node name="PauseBtn" type="Button" parent="Column/TopArea/Stack/TopBar" unique_id=1708267942]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("28_33a00")
 theme_override_styles/normal = SubResource("StyleBoxFlat_d63wj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_gldjl")

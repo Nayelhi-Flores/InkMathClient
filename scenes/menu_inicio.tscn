@@ -1,0 +1,422 @@
+[gd_scene format=3 uid="uid://b267hevw2jqe8"]
+
+[ext_resource type="Script" uid="uid://bvwvw5hyhposg" path="res://scripts/menu_inicio.gd" id="1_d6xxl"]
+[ext_resource type="Texture2D" uid="uid://beguqo3pwrigj" path="res://assets/FONDO MARINO/Frame 42.png" id="2_5p85s"]
+[ext_resource type="Texture2D" uid="uid://cc8u0ekmsh3h7" path="res://assets/items/iconos_navBar5.png" id="4_5psen"]
+[ext_resource type="FontFile" uid="uid://dvpepkv6a4ln5" path="res://assets/fonts/Poppins-Regular.ttf" id="5_5psen"]
+[ext_resource type="FontFile" uid="uid://b7ocw3n7eslwu" path="res://assets/fonts/Poppins-Bold.ttf" id="5_euaya"]
+[ext_resource type="FontFile" uid="uid://crum1ffwbyruk" path="res://assets/fonts/Quicksand-Bold.ttf" id="6_5psen"]
+[ext_resource type="Texture2D" uid="uid://ch603b5oekxqu" path="res://assets/items/items9.png" id="7_euaya"]
+[ext_resource type="Texture2D" uid="uid://c6p3ho5d5nyq6" path="res://assets/items/items1.png" id="7_y3b6f"]
+[ext_resource type="Texture2D" uid="uid://dk4mmlvsk2lva" path="res://assets/items/items8.png" id="9_hxo6n"]
+[ext_resource type="Texture2D" uid="uid://dk1fltkk23u3f" path="res://assets/items/items5.png" id="10_sfsgd"]
+[ext_resource type="Texture2D" uid="uid://vaspdhjlsocp" path="res://assets/items/cofre_0001.png" id="11_uoicu"]
+[ext_resource type="PackedScene" uid="uid://cx3sdmhh3clhq" path="res://scenes/Prefabs/nav_bar.tscn" id="12_hxo6n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p85s"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.972549, 0.44313726, 0.44313726, 1)
+border_width_bottom = 4
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5lp3"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3b6f"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.972549, 0.44313726, 0.44313726, 1)
+border_width_bottom = 4
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxo6n"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color(0.714792, 0.3181813, 0.3181813, 1)
+border_color = Color(0.8666667, 0.20784314, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfsgd"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 40.0
+expand_margin_right = 10.0
+
+[sub_resource type="Theme" id="Theme_euaya"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5l7p0"]
+bg_color = Color(0.03529412, 0.48235294, 0.7137255, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6xxl"]
+bg_color = Color(1, 0.8156863, 0.43137255, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnklu"]
+bg_color = Color(0.23529412, 0.62352943, 0.3764706, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01a6i"]
+bg_color = Color(0.96862745, 0.60784316, 0.42352942, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="MenuInicio" type="Control" unique_id=2000433137]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d6xxl")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1850420077]
+repeat_size = Vector2(2250, 1000)
+autoscroll = Vector2(30, -20)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=2099172919]
+texture = ExtResource("2_5p85s")
+
+[node name="Column" type="VBoxContainer" parent="." unique_id=1790132267]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top" type="MarginContainer" parent="Column" unique_id=520055598]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 24
+
+[node name="TopHeaderHBox" type="HBoxContainer" parent="Column/Top" unique_id=1703957416]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Column/Top/TopHeaderHBox" unique_id=84001884]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Column/Top/TopHeaderHBox/VBoxContainer" unique_id=263099232]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Column/Top/TopHeaderHBox/VBoxContainer/HBoxContainer" unique_id=331651612]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="BtnBack" type="Button" parent="Column/Top/TopHeaderHBox/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=282904065]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_5psen")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_5p85s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v5lp3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y3b6f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hxo6n")
+text = "X"
+
+[node name="Control3" type="Control" parent="Column/Top/TopHeaderHBox/VBoxContainer/HBoxContainer" unique_id=379838142]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Column/Top/TopHeaderHBox/VBoxContainer/HBoxContainer" unique_id=1750988371]
+z_index = 1
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("4_5psen")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Column/Top/TopHeaderHBox/VBoxContainer/HBoxContainer" unique_id=750204613]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="Column/Top/TopHeaderHBox/VBoxContainer/HBoxContainer/MarginContainer" unique_id=152584744]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sfsgd")
+
+[node name="Monedas" type="Label" parent="Column/Top/TopHeaderHBox/VBoxContainer/HBoxContainer/MarginContainer/PanelContainer2" unique_id=957334984]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.39215687, 0.45490196, 0.54509807, 1)
+theme_override_fonts/font = ExtResource("5_euaya")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="Column/Top/TopHeaderHBox/VBoxContainer/HBoxContainer" unique_id=919153429]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Column/Top/TopHeaderHBox/VBoxContainer" unique_id=174149993]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0.11372549, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("6_5psen")
+theme_override_font_sizes/font_size = 20
+text = "¿Qué vamos a practicar hoy?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cards" type="ScrollContainer" parent="Column" unique_id=711427849]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = SubResource("Theme_euaya")
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Column/Cards" unique_id=482206363]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Quiz" type="PanelContainer" parent="Column/Cards/VBoxContainer" unique_id=1301277194]
+clip_contents = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5l7p0")
+
+[node name="MarginContainer" type="MarginContainer" parent="Column/Cards/VBoxContainer/Quiz" unique_id=1699278080]
+z_index = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Column/Cards/VBoxContainer/Quiz/MarginContainer" unique_id=298695187]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Column/Cards/VBoxContainer/Quiz/MarginContainer/HBoxContainer" unique_id=308266194]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Column/Cards/VBoxContainer/Quiz/MarginContainer/HBoxContainer/VBoxContainer" unique_id=588640000]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_5psen")
+theme_override_font_sizes/font_size = 30
+text = "Quiz Estelar"
+
+[node name="Label2" type="Label" parent="Column/Cards/VBoxContainer/Quiz/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1051090974]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("5_5psen")
+theme_override_font_sizes/font_size = 12
+text = "¡Pon a prueba tu mente y gana estrellas y monedas!"
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Column/Cards/VBoxContainer/Quiz/MarginContainer/HBoxContainer" unique_id=51863045]
+layout_mode = 2
+texture = ExtResource("7_y3b6f")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Column/Cards/VBoxContainer/Quiz" unique_id=537240981]
+modulate = Color(1, 1, 1, 0.36862746)
+layout_mode = 2
+texture = ExtResource("7_euaya")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Tienda" type="PanelContainer" parent="Column/Cards/VBoxContainer" unique_id=361532868]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d6xxl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Column/Cards/VBoxContainer/Tienda" unique_id=1662676996]
+z_index = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Column/Cards/VBoxContainer/Tienda/MarginContainer" unique_id=932716952]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Column/Cards/VBoxContainer/Tienda/MarginContainer/HBoxContainer" unique_id=75331115]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Column/Cards/VBoxContainer/Tienda/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1009630073]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_5psen")
+theme_override_font_sizes/font_size = 30
+text = "Tienda"
+
+[node name="Label2" type="Label" parent="Column/Cards/VBoxContainer/Tienda/MarginContainer/HBoxContainer/VBoxContainer" unique_id=555607859]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("5_5psen")
+theme_override_font_sizes/font_size = 12
+text = "¡Atiende clientes, calcula el vuelto exacto!"
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Column/Cards/VBoxContainer/Tienda/MarginContainer/HBoxContainer" unique_id=1056271905]
+layout_mode = 2
+texture = ExtResource("9_hxo6n")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Column/Cards/VBoxContainer/Tienda" unique_id=933761887]
+modulate = Color(1, 1, 1, 0.36862746)
+layout_mode = 2
+texture = ExtResource("7_euaya")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Fracciones" type="PanelContainer" parent="Column/Cards/VBoxContainer" unique_id=599519279]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bnklu")
+
+[node name="MarginContainer" type="MarginContainer" parent="Column/Cards/VBoxContainer/Fracciones" unique_id=1403454330]
+z_index = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Column/Cards/VBoxContainer/Fracciones/MarginContainer" unique_id=722559408]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Column/Cards/VBoxContainer/Fracciones/MarginContainer/HBoxContainer" unique_id=511288633]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Column/Cards/VBoxContainer/Fracciones/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1085371604]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_5psen")
+theme_override_font_sizes/font_size = 30
+text = "Fracciones"
+
+[node name="Label2" type="Label" parent="Column/Cards/VBoxContainer/Fracciones/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1527253062]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("5_5psen")
+theme_override_font_sizes/font_size = 12
+text = "¡Divide las porciones justas y sirve la pizza perfecta!"
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Column/Cards/VBoxContainer/Fracciones/MarginContainer/HBoxContainer" unique_id=79037343]
+layout_mode = 2
+texture = ExtResource("10_sfsgd")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Column/Cards/VBoxContainer/Fracciones" unique_id=441599984]
+modulate = Color(1, 1, 1, 0.36862746)
+layout_mode = 2
+texture = ExtResource("7_euaya")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Fisica" type="PanelContainer" parent="Column/Cards/VBoxContainer" unique_id=800906836]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_01a6i")
+
+[node name="MarginContainer" type="MarginContainer" parent="Column/Cards/VBoxContainer/Fisica" unique_id=1487900305]
+z_index = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Column/Cards/VBoxContainer/Fisica/MarginContainer" unique_id=45220061]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Column/Cards/VBoxContainer/Fisica/MarginContainer/HBoxContainer" unique_id=1089086858]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Column/Cards/VBoxContainer/Fisica/MarginContainer/HBoxContainer/VBoxContainer" unique_id=649540517]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_5psen")
+theme_override_font_sizes/font_size = 30
+text = "Física"
+
+[node name="Label2" type="Label" parent="Column/Cards/VBoxContainer/Fisica/MarginContainer/HBoxContainer/VBoxContainer" unique_id=219812291]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("5_5psen")
+theme_override_font_sizes/font_size = 12
+text = "¡Ajusta ángulo y velocidad para golpear el objetivo!"
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Column/Cards/VBoxContainer/Fisica/MarginContainer/HBoxContainer" unique_id=1236353051]
+layout_mode = 2
+texture = ExtResource("11_uoicu")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Column/Cards/VBoxContainer/Fisica" unique_id=12285804]
+modulate = Color(1, 1, 1, 0.36862746)
+layout_mode = 2
+texture = ExtResource("7_euaya")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NavBar" parent="Column" unique_id=1665061468 instance=ExtResource("12_hxo6n")]
+layout_mode = 2

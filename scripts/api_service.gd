@@ -67,3 +67,52 @@ func obtener_preguntas_test_async(test_id: int, limite_preguntas: int = 15) -> A
 
 func registrar_resultado_test_async(intento_dto: Dictionary) -> Array:
 	return await post_json_async("Evaluaciones/resultados", intento_dto)
+
+func iniciar_juego_async(modo: String) -> Array:
+	return await post_json_async("Juegos/%s/iniciar" % modo, {})
+
+
+func finalizar_juego_async(modo: String, intento_token: String, respuestas: Variant) -> Array:
+	return await _send(HTTPClient.METHOD_POST, "Juegos/%s/resultado" % modo,
+			{"intentoToken": intento_token, "respuestas": respuestas})
+
+func logout_async() -> Array:
+	return await post_json_async("Auth/logout", {})
+
+func arrecife_perfil_async() -> Array:
+	return await get_async("Chat/arrecife/perfil")
+
+func arrecife_mensajes_async(aula_id: int) -> Array:
+	return await get_async("Chat/arrecife/aula/%d" % aula_id)
+
+func arrecife_enviar_async(aula_id: int, contenido: String, es_emoji: bool, padre_id: int = 0) -> Array:
+	return await post_json_async("Chat/arrecife/enviar", {
+		"aulaId": aula_id, "contenido": contenido, "esEmoji": es_emoji,
+		"mensajePadreId": null if padre_id <= 0 else padre_id})
+
+func arrecife_votar_async(mensaje_id: int) -> Array:
+	return await post_json_async("Chat/arrecife/%d/votar-util" % mensaje_id, {})
+
+func arrecife_reportar_async(mensaje_id: int, motivo: String) -> Array:
+	return await post_json_async("Chat/arrecife/%d/reportar" % mensaje_id, {"motivo": motivo})
+
+func arrecife_eliminar_async(mensaje_id: int) -> Array:
+	return await _send(HTTPClient.METHOD_DELETE, "Chat/arrecife/%d" % mensaje_id)
+
+func mis_aulas_async() -> Array:
+	return await get_async("Aulas/mis-aulas")
+
+func aula_tests_async(aula_id: int) -> Array:
+	return await get_async("Aulas/%d/tests" % aula_id)
+
+func aula_recursos_async(aula_id: int) -> Array:
+	return await get_async("Aulas/%d/recursos" % aula_id)
+
+func aula_ranking_async(aula_id: int) -> Array:
+	return await get_async("Aulas/%d/ranking-companeros" % aula_id)
+
+func aula_vincular_async(codigo: String) -> Array:
+	return await post_json_async("Aulas/vincular", {"codigoAcceso": codigo})
+
+func aula_salir_async(aula_id: int) -> Array:
+	return await _send(HTTPClient.METHOD_DELETE, "Aulas/%d/salir" % aula_id)
